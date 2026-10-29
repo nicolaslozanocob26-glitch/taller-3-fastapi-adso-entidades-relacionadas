@@ -1,0 +1,38 @@
+[
+  {
+    "pedido_id": 1,
+    "cliente": "Ana Pérez",
+    "estado": "confirmado",
+    "total": "150000.00",
+    "producto": "Mouse",
+    "cantidad": 2,
+    "subtotal": "70000.00"
+  },
+  {
+    "pedido_id": 1,
+    "cliente": "Ana Pérez",
+    "estado": "confirmado",
+    "total": "150000.00",
+    "producto": "Teclado",
+    "cantidad": 1,
+    "subtotal": "80000.00"
+  },
+  {
+    "pedido_id": 2,
+    "cliente": "Carlos Ruiz",
+    "estado": "cancelado",
+    "total": "35000.00",
+    "producto": "Mouse",
+    "cantidad": 1,
+    "subtotal": "35000.00"
+  },
+  {
+    "pedido_id": 3,
+    "cliente": "Carlos Ruiz",
+    "estado": "cancelado",
+    "total": "1300000.00",
+    "producto": "Monitor",
+    "cantidad": 2,
+    "subtotal": "1300000.00"
+  }
+]

@@ -1,0 +1,218 @@
+[
+  {
+    "caso": "Listar clientes",
+    "metodo": "GET",
+    "ruta": "/clientes",
+    "esperado": 200,
+    "obtenido": 200,
+    "resultado": "Correcto"
+  },
+  {
+    "caso": "Buscar Mouse",
+    "metodo": "GET",
+    "ruta": "/productos?buscar=mouse",
+    "esperado": 200,
+    "obtenido": 200,
+    "resultado": "Correcto"
+  },
+  {
+    "caso": "Correo duplicado",
+    "metodo": "POST",
+    "ruta": "/clientes",
+    "esperado": 409,
+    "obtenido": 409,
+    "resultado": "Correcto"
+  },
+  {
+    "caso": "Precio negativo",
+    "metodo": "POST",
+    "ruta": "/productos",
+    "esperado": 422,
+    "obtenido": 422,
+    "resultado": "Correcto"
+  },
+  {
+    "caso": "Obtener pedido principal",
+    "metodo": "GET",
+    "ruta": "/pedidos/1",
+    "esperado": 200,
+    "obtenido": 200,
+    "resultado": "Correcto"
+  },
+  {
+    "caso": "Pedidos del cliente (reto A)",
+    "metodo": "GET",
+    "ruta": "/clientes/1/pedidos",
+    "esperado": 200,
+    "obtenido": 200,
+    "resultado": "Correcto"
+  },
+  {
+    "caso": "Eliminar cliente con pedidos (reto C)",
+    "metodo": "DELETE",
+    "ruta": "/clientes/1",
+    "esperado": 409,
+    "obtenido": 409,
+    "resultado": "Correcto"
+  },
+  {
+    "caso": "Reporte de ventas por cliente (reto E)",
+    "metodo": "GET",
+    "ruta": "/reportes/ventas-por-cliente",
+    "esperado": 200,
+    "obtenido": 200,
+    "resultado": "Correcto"
+  },
+  {
+    "caso": "Crear cliente",
+    "metodo": "POST",
+    "ruta": "/clientes",
+    "esperado": 201,
+    "obtenido": 201,
+    "resultado": "Correcto"
+  },
+  {
+    "caso": "Actualizar cliente (reto C)",
+    "metodo": "PUT",
+    "ruta": "/clientes/7",
+    "esperado": 200,
+    "obtenido": 200,
+    "resultado": "Correcto"
+  },
+  {
+    "caso": "Eliminar cliente sin pedidos (reto C)",
+    "metodo": "DELETE",
+    "ruta": "/clientes/7",
+    "esperado": 204,
+    "obtenido": 204,
+    "resultado": "Correcto"
+  },
+  {
+    "caso": "Crear producto",
+    "metodo": "POST",
+    "ruta": "/productos",
+    "esperado": 201,
+    "obtenido": 201,
+    "resultado": "Correcto"
+  },
+  {
+    "caso": "Limpiar producto temporal de prueba",
+    "metodo": "SQL local",
+    "ruta": "tienda_adso.productos",
+    "esperado": "sin registro temporal",
+    "obtenido": "eliminado",
+    "resultado": "Correcto"
+  },
+  {
+    "caso": "Cambiar stock (reto C)",
+    "metodo": "PATCH",
+    "ruta": "/productos/3/stock?stock=5",
+    "esperado": 200,
+    "obtenido": 200,
+    "resultado": "Correcto"
+  },
+  {
+    "caso": "Restaurar stock de muestra",
+    "metodo": "PATCH",
+    "ruta": "/productos/3/stock?stock=4",
+    "esperado": 200,
+    "obtenido": 200,
+    "resultado": "Correcto"
+  },
+  {
+    "caso": "Pedido con cliente inexistente",
+    "metodo": "POST",
+    "ruta": "/pedidos",
+    "esperado": 404,
+    "obtenido": 404,
+    "resultado": "Correcto"
+  },
+  {
+    "caso": "Integridad tras cliente inexistente",
+    "esperado": "sin pedido ni cambio de stock",
+    "obtenido": "sin cambios",
+    "resultado": "Correcto"
+  },
+  {
+    "caso": "Producto repetido en pedido",
+    "metodo": "POST",
+    "ruta": "/pedidos",
+    "esperado": 422,
+    "obtenido": 422,
+    "resultado": "Correcto"
+  },
+  {
+    "caso": "Stock excesivo",
+    "metodo": "POST",
+    "ruta": "/pedidos",
+    "esperado": 409,
+    "obtenido": 409,
+    "resultado": "Correcto"
+  },
+  {
+    "caso": "Rollback de stock excesivo",
+    "esperado": "sin pedido ni cambio de inventario",
+    "obtenido": "sin cambios",
+    "resultado": "Correcto"
+  },
+  {
+    "caso": "Crear pedido para cancelación",
+    "metodo": "POST",
+    "ruta": "/pedidos",
+    "esperado": 201,
+    "obtenido": 201,
+    "resultado": "Correcto"
+  },
+  {
+    "caso": "Cancelar pedido y devolver stock (reto D)",
+    "metodo": "POST",
+    "ruta": "/pedidos/2/cancelar",
+    "esperado": 200,
+    "obtenido": 200,
+    "resultado": "Correcto"
+  },
+  {
+    "caso": "Evitar doble cancelación (reto D)",
+    "metodo": "POST",
+    "ruta": "/pedidos/2/cancelar",
+    "esperado": 409,
+    "obtenido": 409,
+    "resultado": "Correcto"
+  },
+  {
+    "caso": "Leer pedido cancelado",
+    "metodo": "GET",
+    "ruta": "/pedidos/2",
+    "esperado": 200,
+    "obtenido": 200,
+    "resultado": "Correcto"
+  },
+  {
+    "caso": "Estado final de inventario",
+    "esperado": "Mouse 10; Teclado 7",
+    "obtenido": "Mouse 10; Teclado 7",
+    "resultado": "Correcto"
+  },
+  {
+    "caso": "Cancelar pedido y devolver dos unidades",
+    "metodo": "POST",
+    "ruta": "/pedidos/3/cancelar",
+    "esperado": "200 y unidades_devueltas=2",
+    "obtenido": "200 y unidades_devueltas=2",
+    "resultado": "Correcto"
+  },
+  {
+    "caso": "Impedir segunda cancelación",
+    "metodo": "POST",
+    "ruta": "/pedidos/3/cancelar",
+    "esperado": 409,
+    "obtenido": 409,
+    "resultado": "Correcto"
+  },
+  {
+    "caso": "Stock restaurado tras cancelación",
+    "esperado": 4,
+    "obtenido": 4,
+    "resultado": "Correcto"
+  }
+]

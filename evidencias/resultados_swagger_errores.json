@@ -1,0 +1,56 @@
+{
+  "correo_duplicado": {
+    "status": 409,
+    "body": {
+      "detail": "El correo ya está registrado"
+    }
+  },
+  "precio_invalido": {
+    "status": 422,
+    "body": {
+      "detail": [
+        {
+          "type": "greater_than",
+          "loc": [
+            "body",
+            "precio"
+          ],
+          "msg": "Input should be greater than 0",
+          "input": -1,
+          "ctx": {
+            "gt": 0
+          }
+        }
+      ]
+    }
+  },
+  "cliente_inexistente": {
+    "status": 404,
+    "body": {
+      "detail": "Cliente no encontrado"
+    }
+  },
+  "stock_tras_errores": {
+    "status": 200,
+    "body": [
+      {
+        "nombre": "Mouse",
+        "precio": "35000.00",
+        "stock": 10,
+        "id": 1
+      },
+      {
+        "nombre": "Teclado",
+        "precio": "80000.00",
+        "stock": 7,
+        "id": 2
+      },
+      {
+        "nombre": "Monitor",
+        "precio": "650000.00",
+        "stock": 4,
+        "id": 3
+      }
+    ]
+  }
+}

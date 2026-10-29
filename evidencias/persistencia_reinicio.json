@@ -1,0 +1,7 @@
+{
+  "servidor": "Uvicorn reiniciado",
+  "pedido_id": 1,
+  "estado": "confirmado",
+  "total": "150000.00",
+  "resultado": "Pedido recuperado desde MySQL después de reiniciar FastAPI"
+}
